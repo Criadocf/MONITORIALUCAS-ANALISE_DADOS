@@ -2,7 +2,7 @@ import pandas as pd
 
 car = pd.read_csv('carros.csv', sep=';')
 
-print(car.head(200))
+print(car.head(50))
 
 print('------------------------//------------------------//-------------------//--------------')
 
@@ -48,7 +48,7 @@ dataset e o ano atual. Execute a funçaõ e mostre o resultado.""")
 #def quilometragem_media(dt_set, anno_atual):
 #    ler_data = pd.read_csv()
 
-print('PESQUISA COM QUERIES', 'a)mostre os carros com motor "Diesel V8" ', sep="\n")
+print('9 - PESQUISA COM QUERIES', 'a)mostre os carros com motor "Diesel V8" ', sep="\n")
 
 print(car.loc[car['Motor'] == 'Motor Diesel V8'])
 
@@ -57,7 +57,20 @@ b = (car['Motor'] == 'Motor 1.0 8v') & (car['Valor'] < 100000)
 b_filtro = car.loc[b]
 print(b_filtro)
 
-print()
+print('c) Carros com média de km média de até 10000km com motor 1.8 16v')
+c = (car['Quilometragem'] <= 10000) & (car['Motor'] == 'Motor 1.8 16v' )
+c_filtro = car.loc[c]
+print(c_filtro)
+
+print('d) Listagem dos tipos de motores cadastrados')
+motores_cadastrados = car['Motor']
+Lista_motores = []
+for c in motores_cadastrados:
+    if c not in Lista_motores:
+        Lista_motores.append(c)
+print('MOTORES CADASTRADOS', Lista_motores, sep='=> ')
+
+
 
 
 
